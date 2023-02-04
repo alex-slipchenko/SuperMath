@@ -1,0 +1,7 @@
+.wrap{
+    width: 200px;
+}
+.wrap label{
+    display: block;
+    margin-bottom: 10px;
+}

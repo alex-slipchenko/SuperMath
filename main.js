@@ -9,9 +9,13 @@ myButton.addEventListener('click', () => {
     let rezult = 0;
     class SuperMath {
 
-        constructor(X, Y, znak) {
+        constructor(X, Y) {
             this.X = +myX.value;
             this.Y = +myY.value;
+
+
+        }
+        check(obj) {
 
             switch (myznak.value) {
                 case '+':
@@ -32,18 +36,11 @@ myButton.addEventListener('click', () => {
                     rezult = 'string';
             }
 
-        }
-        check(obj) {
-
             if (rezult !== 'string') {
-
-                const myConfirm = confirm('You will continue?');
-                if (myConfirm) {
-                    return myOut.textContent = rezult;
-                } else {
-                    this.valueReset();
-                    this.myInput();
-                }
+                
+                let myConfirm = confirm('You will continue?');
+                (myConfirm) ? (myOut.textContent = rezult) : (this.#valueReset(), this.myInput());
+                
             } else {
                 myOut.textContent = 'Please Entered:  + - / * %';
             }
@@ -54,16 +51,16 @@ myButton.addEventListener('click', () => {
 
         }
 
-        valueReset() {
-            myX.value = 0;
-            myY.value = 0;
+        #valueReset() {
+            myX.value = '';
+            myY.value = '';
+            myznak.value = '';
             myOut.textContent = '';
         }
     }
 
     const myClass = new SuperMath();
     myClass.check();
-
+   
 });
-
 
